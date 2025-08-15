@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premiaciones Semanales</title>
+    <link rel="stylesheet" href="premios.css">
+</head>
+<body>
+
+    <header>
+        <h1>Premios Semanales</h1>
+        <nav>
+            <button onclick="cambiarSemana(1)">Semana 1</button>
+            <button onclick="cambiarSemana(2)">Semana 2</button>
+            <button onclick="cambiarSemana(3)">Semana 3</button>
+            <button onclick="cambiarSemana(4)">Semana 4</button>
+        </nav>
+    </header>
+
+    <main>
+        <section id="progreso">
+            <h2 id="tituloSemana">Semana 1</h2>
+            <div class="barra">
+                <div id="barraProgreso"></div>
+            </div>
+            <p id="porcentajeTexto">0%</p>
+            <div id="fraseMotivacional"></div>
+            <div id="videoMotivacion" style="display:none;">
+                <video width="320" controls>
+                    <source src="videos/motivacion.mp4" type="video/mp4">
+                    Tu navegador no soporta video.
+                </video>
+            </div>
+        </section>
+    </main>
+
+    <script src="premios.js"></script>
+</body>
+</html>

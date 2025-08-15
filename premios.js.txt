@@ -1,0 +1,39 @@
+let semanaActual = 1;
+let progreso = [0, 0, 0, 0]; // % de cada semana
+const frases = [
+    "¡Vamos, tú puedes!",
+    "Cada regalo cuenta",
+    "Estás muy cerca del premio",
+    "No te detengas ahora"
+];
+
+function cambiarSemana(num) {
+    semanaActual = num;
+    document.getElementById("tituloSemana").textContent = "Semana " + num;
+    actualizarBarra();
+}
+
+function actualizarProgreso(valor) {
+    progreso[semanaActual - 1] = valor;
+    actualizarBarra();
+}
+
+function actualizarBarra() {
+    let porcentaje = progreso[semanaActual - 1];
+    document.getElementById("barraProgreso").style.width = porcentaje + "%";
+    document.getElementById("porcentajeTexto").textContent = porcentaje + "%";
+    document.getElementById("fraseMotivacional").textContent =
+        frases[Math.floor(Math.random() * frases.length)];
+
+    if (porcentaje >= 30) {
+        document.getElementById("videoMotivacion").style.display = "block";
+    } else {
+        document.getElementById("videoMotivacion").style.display = "none";
+    }
+}
+
+// Ejemplo de prueba
+setInterval(() => {
+    let nuevoValor = Math.min(100, progreso[semanaActual - 1] + 5);
+    actualizarProgreso(nuevoValor);
+}, 2000);
